@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+    {% for post in posts %}
+  <div class="col">
+    <div class="card h-100">
+      <img src="{{ post.image.url }}" class="card-img-top" alt="Hollywood Sign on The Hill"/>
+      <div class="card-body">
+        <h5 class="card-title">{{ post.title }}</h5>
+        <p class="card-text">
+            {{ post.description }}
+        </p>
+           <a href="{% url 'detail_view' post.id %}" class="btn btn-primary">Read More</a>
+      </div>
+    </div>
+      {% endfor %}
+
+  </div>
+
+
+</div>
+{% endblock %}

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% extends 'home.html' %}
+{% block content %}
+    <h1>Create New Acc</h1>
+    <form method="Post">
+    {% csrf_token %}
+        {{ form.as_p }}
+    <button>Signup</button>
+    </form>
+{% endblock %}
+
+</body>
+</html>

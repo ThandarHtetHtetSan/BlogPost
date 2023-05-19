@@ -1,0 +1,43 @@
+{% extends base.html %}
+{% block content %}
+    <!-- Carousel wrapper -->
+<div id="carouselDarkVariant" class="carousel slide carousel-fade carousel-dark" data-mdb-ride="carousel">
+  <!-- Indicators -->
+  <div class="carousel-indicators">
+      {% for p in photos %}
+    <button
+      data-mdb-target="#carouselDarkVariant"
+      data-mdb-slide-to="{{ forloop.counter0 }}"
+      class="{% if forloop.counter0 == 0 %}
+      active {%endif %}"
+      aria-current="true"
+      aria-label="Slide 1"></button>
+  {% endfor %}
+
+  </div>
+    <!-- Single item -->
+    <div class="carousel-item {% if forloop.counter0 == 0 %}
+      active {%endif %}">
+        {% for p in photos %}
+      <img src="{{ p.images.url }}" class="d-block w-100" alt="Woman Reading a Book"/>
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Third slide label</h5>
+        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+      </div>
+        {% endfor %}
+    </div>
+  </div>
+  <!-- Inner -->
+
+  <!-- Controls -->
+  <button class="carousel-control-prev" type="button" data-mdb-target="#carouselDarkVariant" data-mdb-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-mdb-target="#carouselDarkVariant" data-mdb-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+<!-- Carousel wrapper -->
+{%endblock  %}
